@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+    <remote name="exthm"
+            fetch="https://github.com/exTHmUI-legacy"
+            revision="refs/heads/exthm-11" />
+
+    <remote name="rovars"
+            fetch="https://github.com/rovars/"
+            revision="exthm-11" />
+
+    <remove-project name="LineageOS/android_build" />
+    <remove-project name="LineageOS/android_build_soong" />
+    <remove-project name="LineageOS/android" />
+    <remove-project name="LineageOS/android_system_core" />
+    <remove-project name="LineageOS/android_system_netd" />
+    <remove-project name="LineageOS/android_device_lineage_sepolicy" />
+    
+    <remove-project name="LineageOS/android_frameworks_base" />
+    <remove-project name="LineageOS/android_frameworks_av" />
+    <remove-project name="LineageOS/android_lineage-sdk" />
+
+    <remove-project name="LineageOS/android_packages_apps_Settings" />
+    <remove-project name="LineageOS/android_packages_apps_LineageParts" />
+    <remove-project name="LineageOS/android_packages_apps_Trebuchet" />
+    <remove-project name="LineageOS/android_packages_apps_DeskClock" />
+    <remove-project name="LineageOS/android_packages_apps_SetupWizard" />
+    <remove-project name="LineageOS/android_packages_apps_Messaging" />
+    <remove-project name="LineageOS/android_packages_apps_Contacts" />
+    <remove-project name="LineageOS/android_packages_apps_Dialer" />
+    <remove-project name="LineageOS/android_packages_apps_ExactCalculator" />
+    <remove-project name="LineageOS/android_packages_apps_Backgrounds" />
+    <remove-project name="LineageOS/android_packages_apps_Updater" />
+    <remove-project name="LineageOS/android_packages_apps_CarrierConfig" />
+
+    <remove-project name="LineageOS/android_vendor_lineage" />
+
+    <project path="build/make" name="android_build" groups="pdk" remote="rovars">
+        <copyfile src="core/root.mk" dest="Makefile" />
+        <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+        <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+        <linkfile src="core" dest="build/core" />
+        <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+        <linkfile src="target" dest="build/target" />
+        <linkfile src="tools" dest="build/tools" />
+    </project>
+
+    <project path="android" name="android" remote="rovars" />
+    <project path="device/lineage/sepolicy" name="android_device_lineage_sepolicy" remote="rovars" />
+    
+    <project path="frameworks/base" name="android_frameworks_base" remote="rovars" />
+    <project path="frameworks/av" name="android_frameworks_av" remote="rovars" />
+    
+    <project path="packages/apps/exTHmSettings" name="android_packages_apps_exTHmSettings" remote="rovars" />
+    <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="rovars" />
+    <project path="packages/apps/LineageParts" name="android_packages_apps_LineageParts" remote="rovars" />
+    <project path="packages/apps/Trebuchet" name="android_packages_apps_Trebuchet" remote="rovars" />
+    <project path="packages/apps/DeskClock" name="android_packages_apps_DeskClock" remote="rovars" />
+    
+    <project path="system/core" name="android_system_core" remote="rovars" />
+    <project path="system/netd" name="android_system_netd" remote="rovars" groups="pdk" />
+    
+    <project path="vendor/exthm" name="android_vendor_exthm" remote="rovars" />
+    <project path="lineage-sdk" name="android_lineage-sdk" remote="rovars" />
+
+    <project path="build/soong" name="android_build_soong" groups="pdk,tradefed" remote="exthm">
+        <linkfile src="root.bp" dest="Android.bp" />
+        <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+    </project>
+
+    <project path="external/asus/stitchimage" name="external_asus_stitchimage" remote="exthm" />
+
+    <project path="packages/apps/Messaging" name="android_packages_apps_Messaging" remote="exthm" />
+    <project path="packages/apps/Backgrounds" name="android_packages_apps_Backgrounds" remote="exthm" />
+    <project path="packages/apps/Calculator" name="android_packages_apps_Calculator" remote="exthm" />
+    <project path="packages/apps/Contacts" name="android_packages_apps_Contacts" remote="exthm" />
+    <project path="packages/apps/Dialer" remote="exthm" name="android_packages_apps_Dialer" groups="pdk-fs" />
+    <project path="packages/apps/CarrierConfig" name="android_packages_apps_CarrierConfig" remote="exthm" />
+    <project path="packages/apps/SetupWizard" name="android_packages_apps_SetupWizard" remote="exthm" />
+    <project path="packages/apps/GamingMode" name="android_packages_apps_GamingMode" remote="exthm" />
+    <project path="packages/apps/ThemeManager" remote="exthm" name="android_packages_apps_ThemeManager" />
+    <project path="packages/apps/YellowPage" remote="exthm" name="android_packages_apps_YellowPage" />
+    <project path="packages/apps/SoftAPManager" remote="exthm" name="android_packages_apps_SoftAPManager" />
+    <project path="packages/apps/Updater" name="android_packages_apps_Updater" remote="exthm" />
+
+    <project path="packages/overlays/CaptivePortalConfig" remote="exthm" name="android_packages_overlays_CaptivePortalConfig" />
+
+    <project path="packages/themes/DefaultTheme" name="android_packages_themes_DefaultTheme" remote="exthm" />
+
+</manifest>
