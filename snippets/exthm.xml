@@ -6,7 +6,7 @@
             revision="refs/heads/exthm-11" />
 
     <remote name="rovars"
-            fetch="https://github.com/rovars/"
+            fetch="https://github.com/rov-ext/"
             revision="exthm-11" />
 
     <remove-project name="LineageOS/android_build" />
